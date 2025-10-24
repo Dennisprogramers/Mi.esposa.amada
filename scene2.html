@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuerdos 🌻</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      background: linear-gradient(to top, #a1d4f5 0%, #d5eaf5 60%, #ffffff 100%);
+      overflow: hidden;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* 🌻 Girasol */
+    .sunflower-container {
+      position: relative;
+      bottom: -50px;
+      animation: sway 12s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    .stem {
+      width: 15px;
+      height: 400px;
+      background: linear-gradient(to right, #4a7d29, #6a9c40);
+      border-radius: 10px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+    }
+
+    .leaf {
+      position: absolute;
+      background: linear-gradient(to bottom right, #5a8c39, #8bc34a);
+      border-radius: 50% 0 50% 50%;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .leaf.leaf-1 {
+      width: 80px;
+      height: 100px;
+      bottom: 200px;
+      left: 30px;
+      transform: rotate(10deg);
+    }
+
+    .leaf.leaf-2 {
+      width: 70px;
+      height: 90px;
+      bottom: 120px;
+      left: 135px;
+      transform: rotate(-10deg) scaleX(-1);
+    }
+
+    .head {
+      width: 250px;
+      height: 250px;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 380px;
+    }
+
+    .center {
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(ellipse at center, #6b4a2f 0%, #4a301a 100%);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      box-shadow: inset 0 0 15px #2a1a0a;
+    }
+
+    .petal {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform-origin: bottom center;
+      border: 1px solid #ffc800;
+      cursor: pointer;
+      transition: filter 0.2s ease-in-out;
+    }
+
+    .petal:hover {
+      filter: brightness(1.1);
+    }
+
+    .petal-back {
+      width: 60px;
+      height: 140px;
+      background: linear-gradient(to top, #e6b800, #ffd700);
+      border-radius: 50% 50% 0 0;
+      z-index: 1;
+    }
+
+    .petal-middle {
+      width: 50px;
+      height: 120px;
+      background: linear-gradient(to top, #ffcc00, #ffea80);
+      border-radius: 50% 50% 0 0;
+      z-index: 2;
+    }
+
+    .petal-front {
+      width: 40px;
+      height: 100px;
+      background: linear-gradient(to top, #ffd700, #fff2b2);
+      border-radius: 50% 50% 0 0;
+      z-index: 3;
+    }
+
+    .petal.falling {
+      animation: fallAndFade 2.5s ease-in forwards;
+      pointer-events: none;
+    }
+
+    @keyframes fallAndFade {
+      100% {
+        transform: translateY(80vh) rotateZ(180deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(3deg); }
+      50% { transform: rotate(-3deg); }
+    }
+
+    /* 🌸 Fondo difuminado y contenedor del video */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(255, 182, 193, 0.3);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      z-index: 999;
+    }
+
+    .overlay.show {
+      opacity: 1;
+    }
+
+    .video-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      transition: transform 0.8s ease;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .overlay.show .video-box {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .video-box video {
+      width: 100%;
+      max-height: 340px;
+      border-radius: 15px;
+      display: block;
+      background: black;
+    }
+
+    .video-box h2 {
+      margin-top: 15px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sunflower-container">
+    <div class="head">
+      <div class="center"></div>
+    </div>
+    <div class="stem"></div>
+    <div class="leaf leaf-1"></div>
+    <div class="leaf leaf-2"></div>
+  </div>
+
+  <script>
+    const recuerdos = [
+      { video: 'media/recuerdo1.mp4', texto: '💜 Mi amor, me encantas 💜' },
+      { video: 'media/recuerdo2.mp4', texto: '🌸 Tu sonrisa me enamoró 🌸' },
+      { video: 'media/recuerdo3.mp4', texto: '🌅 Aquella tarde que jamás olvidaré 🌅' },
+      { video: 'media/recuerdo4.mp4', texto: '🎶 Nuestra relacion es la prueba de que el amor soporta todo 🎶' },
+      { video: 'media/recuerdo5.mp4', texto: '💞 El mejor dia de mi vida 💞' }
+    ];
+
+    let usados = [];
+
+    function obtenerRecuerdo() {
+      if (usados.length === recuerdos.length) usados = [];
+      let index;
+      do { index = Math.floor(Math.random() * recuerdos.length); }
+      while (usados.includes(index));
+      usados.push(index);
+      return recuerdos[index];
+    }
+
+    function createPetals() {
+      const head = document.querySelector('.head');
+      const layers = [
+        { count: 16, className: 'petal-back', offset: 0 },
+        { count: 16, className: 'petal-middle', offset: 11.25 },
+        { count: 12, className: 'petal-front', offset: 15 }
+      ];
+      layers.forEach(layer => {
+        for (let i = 0; i < layer.count; i++) {
+          const petal = document.createElement('div');
+          petal.classList.add('petal', layer.className);
+          const angle = (360 / layer.count) * i + layer.offset;
+          petal.style.transform = `translate(-50%, -100%) rotate(${angle}deg)`;
+          if (layer.className === 'petal-front') {
+            petal.addEventListener('click', detachPetal);
+          }
+          head.appendChild(petal);
+        }
+      });
+    }
+
+    function detachPetal(event) {
+      const petal = event.currentTarget;
+      if (petal.classList.contains('falling')) return;
+      petal.classList.add('falling');
+      petal.addEventListener('animationend', () => petal.remove());
+
+      const recuerdo = obtenerRecuerdo();
+
+      // Crear overlay difuminado
+      const overlay = document.createElement('div');
+      overlay.className = 'overlay';
+
+      const box = document.createElement('div');
+      box.className = 'video-box';
+
+      const video = document.createElement('video');
+      video.src = recuerdo.video;
+      video.autoplay = true;
+      video.controls = true;
+
+      const titulo = document.createElement('h2');
+      titulo.textContent = recuerdo.texto;
+
+      box.appendChild(video);
+      box.appendChild(titulo);
+      overlay.appendChild(box);
+      document.body.appendChild(overlay);
+
+      // Fade in
+      setTimeout(() => overlay.classList.add('show'), 50);
+
+      // Cierra al terminar
+      video.addEventListener('ended', () => {
+        overlay.classList.remove('show');
+        setTimeout(() => overlay.remove(), 800);
+      });
+    }
+
+    window.onload = createPetals;
+  </script>
+
+</body>
+</html>
