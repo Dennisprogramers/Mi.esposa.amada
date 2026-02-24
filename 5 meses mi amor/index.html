@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Meses con mi esposita❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: #e8dcc7;
+    font-family: 'Cormorant Garamond', serif;
+    color: #3b2a1a;
+    overflow-x: hidden;
+}
+
+/* Pantalla inicial */
+.intro {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #e8dcc7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.intro h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 60px;
+    margin-bottom: 40px;
+}
+
+.intro button {
+    padding: 15px 40px;
+    font-size: 22px;
+    border: none;
+    border-radius: 40px;
+    background: #d4a017;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.intro button:hover {
+    background: #b8860b;
+}
+
+/* Carta */
+.carta {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 90px 70px;
+    background: #fdf6e3;
+    background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+    box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+    border-radius: 12px;
+    display: none;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 75px;
+    margin-bottom: 80px;
+}
+
+.bloque {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 120px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.2s ease;
+}
+
+.bloque.reverse {
+    flex-direction: row-reverse;
+}
+
+.bloque img,
+.bloque video {
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+    border: 10px solid #fdf6e3;
+}
+
+.texto {
+    width: 50%;
+    font-size: 23px;
+    line-height: 2;
+}
+
+.show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.firma {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 45px;
+    margin-top: 60px;
+}
+
+/* Elementos flotando */
+.flotante {
+    position: fixed;
+    top: -50px;
+    font-size: 30px;
+    animation: caer linear forwards;
+    z-index: 1;
+}
+
+@keyframes caer {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .bloque {
+        flex-direction: column !important;
+    }
+    .bloque img,
+    .bloque video,
+    .texto {
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="intro">
+    <h2>¿Lista mi amor?</h2>
+    <button onclick="iniciar()">Shi ❤️</button>
+</div>
+
+<audio id="musica" loop>
+    <source src="media/dime.mp3" type="audio/mpeg">
+</audio>
+
+<div class="carta" id="carta">
+
+<h1>Nuestros 5 Meses ❤️</h1>
+
+<div class="bloque">
+    <img src="media/f4.jpeg">
+    <div class="texto">
+        Hola mi amor, tu esposo quiere decirte que te ama mucho con todo su corazón. 
+        Sé que te lo digo muchas veces, pero dicen que cuando uno repite algo tanto es porque de verdad lo tiene en el corazón… 
+        y por eso a cada momento te lo digo.
+    </div>
+</div>
+
+<div class="bloque reverse">
+    <video src="media/v5.mp4" loop muted playsinline></video>
+    <div class="texto">
+        Gracias por estos 5 meses, por estas 21 semanas y por estos 152 días. 
+        En cada uno de ellos te he elegido, y lo seguiré haciendo. 
+        Prometo no descansar hasta que nos casemos, pero no creas que ahí acabará mi esfuerzo por contentarte, 
+        no… eso apenas será el comienzo.
+    </div>
+</div>
+
+<div class="bloque">
+    <img src="media/f3.jpeg">
+    <div class="texto">
+        Gracias por la gran mujer que eres, gracias por tu apoyo, por tus cuidados y también por tus caricias y tus besos. 
+        Gracias por ser mi calma cuando ya no puedo más, tú estás ahí para levantarme. Te amo.
+    </div>
+</div>
+
+<div class="bloque reverse">
+    <video src="media/v3.mp4" loop muted playsinline></video>
+    <div class="texto">
+        En estos 5 meses hemos reído, cocinado, nos hemos amado y también hemos llorado, 
+        pero en cada etapa me he enamorado más de usted, de su forma de ser.
+    </div>
+</div>
+
+
+
+<div class="bloque">
+    <img src="media/f5.jpeg">
+    <div class="texto">
+   Quiero que corras hacia mis brazos cuando los demás no te entiendan, porque yo sí puedo comprenderte y ayudarte. 
+   Yo sí te daré todo el amor que usted se merece y aún más.
+    Siempre la voy a mimar, a contentar y, sobre todo, a proteger, porque no puedo permitir 
+    que a lo más importante en mi vida le pase algo.
+    </div>
+</div>
+
+<div class="bloque reverse">
+    <img src="media/f1.jpeg">
+    <div class="texto">
+        Gracias por ser lo que eres, mi amor. 
+        No puedo arreglar el pasado ni adelantar el futuro, 
+        pero cualquier momento a tu lado se convierte en el correcto.
+    </div>
+</div>
+
+<div class="firma">
+Con todo mi amor… Tu cabezon❤️
+</div>
+
+</div>
+
+<script>
+
+function iniciar() {
+    document.querySelector('.intro').style.display = 'none';
+    document.getElementById('carta').style.display = 'block';
+
+    const musica = document.getElementById('musica');
+    musica.play();
+
+    document.querySelectorAll("video").forEach(video => {
+        video.muted = true;
+        video.play();
+    });
+
+    lluvia();
+}
+
+const bloques = document.querySelectorAll('.bloque');
+window.addEventListener('scroll', () => {
+    bloques.forEach(bloque => {
+        const windowHeight = window.innerHeight;
+        const elementTop = bloque.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+            bloque.classList.add('show');
+        }
+    });
+});
+
+function lluvia() {
+    setInterval(() => {
+        const elemento = document.createElement('div');
+        elemento.classList.add('flotante');
+        elemento.style.left = Math.random() * 100 + "vw";
+        elemento.style.animationDuration = (Math.random() * 3 + 4) + "s";
+        elemento.innerHTML = Math.random() > 0.5 ? "🌻" : "❤️";
+        document.body.appendChild(elemento);
+
+        setTimeout(() => {
+            elemento.remove();
+        }, 7000);
+    }, 400);
+}
+
+</script>
+
+</body>
+</html>
